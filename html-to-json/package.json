@@ -1,0 +1,24 @@
+{
+  "name": "table-export",
+  "description": "Pick a table on any web page and export it as JSON, XML, CSV, TSV, or clean HTML.",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "packageManager": "pnpm@10.34.6",
+  "scripts": {
+    "dev": "wxt",
+    "dev:firefox": "wxt -b firefox --mv3",
+    "dev:edge": "wxt -b edge",
+    "build": "wxt build -b chrome && wxt build -b edge && wxt build -b firefox --mv3",
+    "zip": "wxt zip -b chrome && wxt zip -b edge && wxt zip -b firefox --mv3",
+    "compile": "tsc --noEmit",
+    "test": "vitest run",
+    "postinstall": "wxt prepare"
+  },
+  "devDependencies": {
+    "happy-dom": "^21.0.4",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.5",
+    "wxt": "^0.21.5"
+  }
+}

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Table Export demo</title>
+<style>
+  body { font: 15px/1.5 system-ui, sans-serif; margin: 2rem auto; max-width: 900px; padding: 0 1rem; }
+  table { border-collapse: collapse; margin: 1rem 0; }
+  th, td { border: 1px solid #aaa; padding: 4px 8px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid #aaa; margin: 1rem 0; }
+  .grid [role=row] { display: contents; }
+  .grid [role=columnheader] { font-weight: 600; background: #eee; }
+  .grid > div > div { padding: 4px 8px; border: 1px solid #ddd; }
+  .sr-only { display: none; }
+</style>
+</head>
+<body>
+<h1>Table Export demo</h1>
+<p>Click the toolbar button (or press Alt+Shift+T), hover a table, and click it.</p>
+
+<h2>Merged cells and footer</h2>
+<table id="sales" class="wikitable sortable" style="color:#222">
+  <caption>Quarterly sales &amp; "notes"</caption>
+  <thead>
+    <tr><th rowspan="2">Region</th><th colspan="2">Q1</th><th rowspan="2">Notes</th></tr>
+    <tr><th>Jan</th><th>Feb</th></tr>
+  </thead>
+  <tbody>
+    <tr><td rowspan="2" onclick="alert('page handler fired!')">North</td><td>1,200</td><td>1,350</td>
+      <td><a href="/reports/north?id=1" target="_blank">Report</a>, <b>bold</b><br>second line <span class="sr-only">hidden</span></td></tr>
+    <tr><td>900</td><td>1,010</td><td>Contains "quotes"; and a, comma</td></tr>
+    <tr><td>South</td><td>700</td><td>650</td><td><script>console.log('x')</script><img src="x.png" alt="chart"> <span style="font-weight:bold">styled</span></td></tr>
+  </tbody>
+  <tfoot><tr><th>Total</th><td>2,800</td><td>3,010</td><td></td></tr></tfoot>
+</table>
+
+<h2>Sparse columns</h2>
+<p>A section title row, an action column without a title, a "Discount" column with no values, a blank row, and a row with only an "Edit" link: try the "Exclude" options.</p>
+<table id="sparse">
+  <thead><tr><th>Order</th><th></th><th>Customer</th><th>Discount</th><th>Total</th></tr></thead>
+  <tbody>
+    <tr><th colspan="5">October</th></tr>
+    <tr><td>1001</td><td><a href="#">Edit</a></td><td>Ada</td><td></td><td>120</td></tr>
+    <tr><td>1002</td><td><a href="#">Edit</a></td><td>Linus</td><td> </td><td>80</td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td><a href="#">Edit</a></td><td></td><td></td><td></td></tr>
+    <tr><td colspan="2">1003 (merged)</td><td>Grace</td><td></td><td>45</td></tr>
+  </tbody>
+</table>
+
+<h2>Nested table</h2>
+<table id="outer">
+  <tr><th>Item</th><th>Details</th></tr>
+  <tr><td>Widget</td><td>
+    <table id="inner"><tr><th>Size</th><th>Color</th></tr><tr><td>M</td><td>Red</td></tr></table>
+  </td></tr>
+</table>
+
+<h2>ARIA grid</h2>
+<div id="aria" class="grid" role="grid" aria-label="Team members">
+  <div role="row"><div role="columnheader">Name</div><div role="columnheader">Role</div><div role="columnheader">Since</div></div>
+  <div role="row"><div role="gridcell">Ada</div><div role="gridcell">Engineer</div><div role="gridcell">2019</div></div>
+  <div role="row"><div role="gridcell">Linus</div><div role="gridcell">Designer</div><div role="gridcell">2021</div></div>
+</div>
+
+<h2>Layout table (ignored)</h2>
+<table role="presentation"><tr><td>Not a data table</td></tr></table>
+</body>
+</html>

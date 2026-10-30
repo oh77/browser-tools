@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Table Export – allow embedded frames</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main>
+    <div class="content">
+      <h1>Read tables in embedded frames?</h1>
+      <p>This page embeds content from:</p>
+      <ul id="origins"></ul>
+      <p class="muted">Table Export needs permission to read those sites so it can find tables inside their frames. It only runs when you click the toolbar button. You can remove access at any time on the extension’s details page.</p>
+      <p id="status" role="status"></p>
+    </div>
+    <div class="actions">
+      <button id="cancel" type="button">Cancel</button>
+      <button id="allow" type="button" class="primary">Allow</button>
+    </div>
+  </main>
+  <script type="module" src="./main.ts"></script>
+</body>
+</html>
