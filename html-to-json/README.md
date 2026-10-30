@@ -4,7 +4,7 @@ Browser extension for Chrome, Edge, and Firefox. Pick a table on any page and ex
 
 ## Use
 
-1. Click the toolbar button or press **Alt+Shift+T**.
+1. Click the toolbar button or press **Alt+Shift+T** (**Control+Shift+T** on macOS).
 2. Hover over a table and click it. You can also press **Enter** to select the highlighted table. **↑/↓** move to the outer or inner table when tables are nested, and **Esc** cancels.
 3. In the panel, choose a format and options, check the preview, then click **Copy** or **Download**.
 
@@ -81,7 +81,7 @@ Build first with `pnpm build`, which writes to `dist/<browser>-mv3/`. You can al
 
 Use `http://localhost:8000/demo.html` and go through this list:
 
-- [ ] The toolbar button and **Alt+Shift+T** both start pick mode. Pressing either again stops it.
+- [ ] The toolbar button and **Alt+Shift+T** (**Control+Shift+T** on macOS) both start pick mode. Pressing either again stops it.
 - [ ] Hovering over a table outlines it and shows its size. The layout table at the bottom is never highlighted.
 - [ ] Clicking the "North" cell selects the table without triggering the page's `alert`.
 - [ ] Hovering over the inner (nested) table and pressing **↑** selects the outer table. **↓** goes back to the inner one. **Enter** selects the highlighted table.
@@ -103,7 +103,7 @@ Then use `http://localhost:8000/frames.html`:
 
 Also try a few real pages, such as a Wikipedia article with sortable tables and a web app that uses a `role="grid"` data grid. Check that the panel looks right in dark mode.
 
-**Shortcut conflicts:** if Alt+Shift+T does nothing, another extension may already use it. Change it at `chrome://extensions/shortcuts`, `edge://extensions/shortcuts`, or in Firefox under `about:addons` → gear icon → **Manage Extension Shortcuts**.
+**Shortcut conflicts:** if the shortcut does nothing, another extension may already use it. The browser only applies the suggested shortcut when the extension is installed, so after changing it in `wxt.config.ts`, remove the extension and load it again. Change it at `chrome://extensions/shortcuts`, `edge://extensions/shortcuts`, or in Firefox under `about:addons` → gear icon → **Manage Extension Shortcuts**.
 
 **Debugging:**
 - Picker and panel errors appear in the web page's DevTools console.

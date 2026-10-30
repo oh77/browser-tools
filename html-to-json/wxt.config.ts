@@ -11,7 +11,9 @@ export default defineConfig({
     action: { default_title: 'Pick a table to export' },
     commands: {
       _execute_action: {
-        suggested_key: { default: 'Alt+Shift+T' },
+        // Option combos are unreliable on macOS: the Option key types characters on many
+        // layouts (e.g. U.S. International – PC), so the browser never sees Alt+Shift+T.
+        suggested_key: { default: 'Alt+Shift+T', mac: 'MacCtrl+Shift+T' },
         description: 'Pick a table to export',
       },
     },
